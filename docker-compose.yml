@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend-vite
+    build:
+      context: .
+      dockerfile: ./docker/vite/Dockerfile
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    privileged: true
